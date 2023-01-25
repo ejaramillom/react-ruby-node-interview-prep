@@ -172,6 +172,10 @@ mutates the store data (these are not reducer hooks)
 
 reducer function => mutation => central data => subscription => components
 
+central data => subscription => components
+
+components => dispatch => action => forwarded to reducer
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
@@ -445,21 +449,144 @@ return (
   </React.Fragment>
 );
 
-// react router
+// react router v5
+
+Create React App doesn't include page routing.
+
+React Router is the most popular solution.
+
+function App() {
+  return (
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/quotes" />
+        </Route>
+        <Route path="/quotes" exact>
+          <AllQuotes />
+        </Route>
+        <Route path="/quotes/:quoteId">
+          <QuoteDetail />
+        </Route>
+        
 
 // node modules
 
+
+        
 // local server port
+
+        
 
 // high order component
 
+A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature.
+
+import React from 'react'
+  
+const EnhancedComponent = (OriginalComponent) => {
+    class NewComponent extends React.Component {
+  
+        // Logic here
+  
+        render() {
+            // Pass the callable props to Original component
+            return <OriginalComponent name="GeeksforGeeks"  /> 
+        }
+    }
+    // Returns the new component
+    return NewComponent
+}
+  
+export default EnhancedComponent;
+
 // pure components
+
+used to avoid re render of component
+
+Now, ReactJS has provided us a Pure Component. If we extend a class with Pure Component, there is no need for shouldComponentUpdate() Lifecycle Method. ReactJS Pure Component Class compares current state and props with new props and states to decide whether the React component should re-render itself or  Not.
+
+import React from ‘react’;
+  
+export default class Test extends React.PureComponent{
+   render(){
+      return <h1>Welcome to GeeksforGeeks</h1>;
+   }
+}
 
 // state vs props
 
 // context API
 
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+In a typical React application, data is passed top-down (parent to child) via props, but such usage can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+
+import React, { createContext, useState } from "react";
+
+const UserContext = createContext(undefined);
+const UserDispatchContext = createContext(undefined);
+
+function UserProvider({ children }) {
+  const [userDetails, setUserDetails] = useState({
+    username: "John Doe"
+  });
+
+  return (
+    <UserContext.Provider value={userDetails}>
+      <UserDispatchContext.Provider value={setUserDetails}>
+        {children}
+      </UserDispatchContext.Provider>
+    </UserContext.Provider>
+  );
+}
+
+export { UserProvider, UserContext, UserDispatchContext };
+
+function Main() {
+  return (
+    <div className="dashboardContent">
+      <UserProvider>
+        <TopNav />
+        <Page />
+      </UserProvider>
+    </div>
+  );
+}
+
+function Profile() {
+  const userDetails = React.useContext(UserContext);
+  const setUserDetails = useContext(UserDispatchContext);
+
+  return <h1> {userDetails.username} </h1>;
+}
+
+      const [userDetails, setUserDetails] = useState({
+    username: "John Doe"
+});
+
 // super, render and constructor
+
+// react memo
+
+Using memo will cause React to skip rendering a component if its props have not changed.
+
+import { memo } from "react";
+
+const Todos = ({ todos }) => {
+  console.log("child render");
+  return (
+    <>
+      <h2>My Todos</h2>
+      {todos.map((todo, index) => {
+        return <p key={index}>{todo}</p>;
+      })}
+    </>
+  );
+};
+
+export default memo(Todos);
+
 
 
 
