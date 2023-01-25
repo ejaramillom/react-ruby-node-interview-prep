@@ -72,7 +72,7 @@ a hook is a method used to manipulate react state and lifecycle methods
 
 // jsx
 
-javascript xml is a language created to let javascript include html syntax in its declarations. 
+javascript xml is a syntax extension created to allow javascript include html syntax in its declarations. 
 
 const element = <img src={user.avatarUrl}></img>;
 
@@ -132,8 +132,6 @@ export const BottleDisplay = (props) => {
   return (
     <div>
       <ExportCSV csvData={props.bottlesToDisplay} fileName="bottles" />
-      <br />
-      <br />
       {props.bottlesToDisplay.map((element) => (
         <Tile kind="ancestor" className="App">
           <Tile kind="parent">
@@ -166,7 +164,7 @@ export const BottleDisplay = (props) => {
 
 // reducer action and store
 
-reducer function --------------------------------
+// reducer function --------------------------------
 
 mutates the store data (these are not reducer hooks)
 
@@ -201,7 +199,7 @@ const cartSlice = createSlice({
       }
     },
 
-actions ---------------------------------
+// actions ---------------------------------
 
 components trigger certain actions
 
@@ -229,7 +227,7 @@ const CartItem = (props) => {
     );
   };
 
-store -------------------------------------
+// store -------------------------------------
 
 redux has one central data store for states
 
@@ -353,7 +351,7 @@ const fetchMoviesHandler = useCallback(async () => {
   setIsLoading(false);
 }, []);    
 
-useRef -------------------------------------
+// useRef -------------------------------------
 
 The useRef Hook allows you to persist values between renders. It can be used to store a mutable value that does not cause a re-render when updated.
 
@@ -373,18 +371,34 @@ const AddUser = (props) => {
 
 // lifecycle method
 
-
-
 // export default vs export
 
 // SSR
 
 // useStrict
 
+
+// <StrictMode>
+
+Use StrictMode to enable additional development behaviors and warnings for the entire component tree inside:
+
+/*
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+*/
+    
 // portals
 
-Another issue in react isa semantic problem of making modals thar overlay in an application, for example
+Another issue in react is a semantic problem of making modals thar overlay in an application for example
 
+/*
 return (
 <>
   <MyModal />
@@ -392,6 +406,8 @@ return (
 </>
 );
 
+*/
+    
 this will render
 
 <section>
@@ -586,9 +602,3 @@ const Todos = ({ todos }) => {
 };
 
 export default memo(Todos);
-
-
-
-
-
-
