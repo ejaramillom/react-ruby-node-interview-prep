@@ -73,48 +73,55 @@ function App() {
 
 // hooks
 
-a hook is a method used to manipulate react state and lifecycle methods
+// a hook is a method used to manipulate react state and lifecycle methods
 
-# jsx
+// jsx
 
-javascript xml is a syntax extension created to allow javascript include html syntax in its declarations. 
+// javascript xml is a syntax extension created to allow javascript include html syntax in its declarations. 
 
 const element = <img src={user.avatarUrl}></img>;
 
-when we  have a json that includes two tags outside a div separation
+// when we  have a json that includes two tags outside a div separation
 
 return (
   <h2>hi there! </h2>
   <p>this does not work </p>
 );
 
-this does not work in JSX, you cant return more than one "root" JSX element.
+// this does not work in JSX, you cant return more than one "root" JSX element.
 
-This is also not valid javascript code
+// This is also not valid javascript code
 
 return (
   React.createElement('h2', {}, 'Hi there!')
   React.createElement('p', {}, 'This does not work ')
 );
 
-because you cannot return two things from a function by separate
+// because you cannot return two things from a function by separate
 
+/*
 a workaround is using a div to wrap inside the things you want to return
 or then you can use an array [] but you have to add "key" attribute to each object
 inependently they are a function or an attribute or a JSX object
 
 it does not have to be a div, but this creates the "div soup"
+*/
 
 // babel
 
+/*
 convert the latest version of JavaScript code into the one that the browser understands. The latest standard version which JavaScript follows is ES2020 which is not fully supported by all the browsers and hence we make use of a tool such as ‘babel’ so that we can convert it into the code that today’s browser understands.
+*/
 
 // webpack
 
+/*
 javascript library. Webpack is a module bundler that lets you compile JavaScript modules (Files, Images, Fonts, JS, CSS, HTML, etc.). Webpack offers multiple functions, like merging modules, code minimization (or minimizing code by eliminating spaces, remarks, junk code, and code reduction), SASS or TypeScript compiling, integration with npm, and other features.
+*/
 
 // redux
 
+/*
 a state management system for cross component or app wide state, for example local state state (data) that belongs to single component
 
 eg listening to user input in an input field toggling a show more details field
@@ -132,6 +139,8 @@ eg user authentication status
 requires 'props chains' or 'props drilling'
 
 REDUX SOLVES THE CROSS COMPONENT OR APP WIDE STATE MANAGEMENT
+
+*/
 
 export const BottleDisplay = (props) => {
   return (
