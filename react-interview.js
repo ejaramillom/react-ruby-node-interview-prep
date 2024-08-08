@@ -4,6 +4,8 @@ a javascript library for building user interfaces created by facebook in may 29 
 
 // difference between virtual dom and real dom and shallow dom
 
+/*
+  
 Real DOM 
 
 DOM stands for Document Object Model it is the structural representation of all nodes in an HTML document DOM represents the Ul of your applications.  DOM manipulation is required to dynamically change the content of a web page. DOM is an interface that allows the script to update the content, style, and structure of the document
@@ -13,6 +15,8 @@ Virtual DOM
 VDOM is the virtual representation of Real DOM React update the state changes in Virtual DOM first and then it syncs with Real DOM
 Virtual DOM is just like a blueprint of a machine, can do the changes in the blueprint but those changes will not directly apply to the machine
 Virtual DOM is a programming concept where a virtual representation of a UI is kept in memory synced with “Real DOM ” by a library such as ReactDOM and this process is called reconciliation
+
+*/
 
 // controlled vs uncontrolled components
 
@@ -47,7 +51,8 @@ function App() {
   );
 }
 
-this is an uncontrolled component because we use programatic manipulation to handle data
+
+// this is an uncontrolled component because we use programatic manipulation to handle data
 
 function App() {
   const nameRef = useRef();
@@ -65,12 +70,12 @@ function App() {
     </form>
   );
 }
-      
+
 // hooks
 
 a hook is a method used to manipulate react state and lifecycle methods
 
-// jsx
+# jsx
 
 javascript xml is a syntax extension created to allow javascript include html syntax in its declarations. 
 
